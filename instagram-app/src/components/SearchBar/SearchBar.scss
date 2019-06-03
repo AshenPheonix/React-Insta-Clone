@@ -5,4 +5,27 @@ nav{
     .icons *{
         margin:0 10px;
     }
+    a{
+        text-decoration: none;
+        color:black;
+    }
+    .search *{
+        border:2px inset lightgray;
+    }
+    .search svg{
+        padding:4px;
+        border-right:none;
+        border-radius: 10px 0 0 10px;
+    }
+    .search input{
+        height:32px;
+        border-left:none;
+        box-shadow: none;
+        border-radius: 0 10px 10px 0;
+    }
+    .search{
+        display: flex;
+        justify-content: center;
+        margin-bottom:.5rem;
+    }
 }

@@ -8,7 +8,11 @@ export default class Posts extends Component {
         return (
             <section className="posts">
                 {this.props.data.map((p,i)=>(
-                    <PostCard postData={p} key={i}/>
+                    <PostCard 
+                        postData={p} 
+                        key={i}
+                        like={this.props.like}
+                    />
                 ))}
             </section>
         )

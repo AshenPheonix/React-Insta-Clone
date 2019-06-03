@@ -28,9 +28,13 @@ export default class extends React.Component {
             searchValue={this.state.searching}  
             searchEdit={this.searchChange}  
           />
-          <Posts data={this.state.data}/>
+          <Posts data={this.state.data} like={this.like}/>
         </IconContext.Provider>
       </div>
     );
+  }
+
+  like=data=>{
+    this.setState((prevState, props) => ({ data:prevState.data.map( d => d===data?{...d,likes:d.likes+1}:d)}))
   }
 }
