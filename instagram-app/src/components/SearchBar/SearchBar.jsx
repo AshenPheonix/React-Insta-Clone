@@ -11,7 +11,7 @@ export default class Searchbar extends Component {
             <nav
                 className="navbar navbar-expand-md navbar-light bg-white sticky-top d-flex justify-content-md-between"
             >
-                <IconContext.Provider value={{}}>
+                <IconContext.Provider value={{size:'32px'}}>
                     <a
                         href="/index.html"
                     >

@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import Navigation from './components/SearchBar/SearchBar'
 import data from './dummy-data'
-import Post from './components/PostContainer/PostContainer'
+import Posts from './components/PostContainer/PostContainer'
+import {IconContext} from 'react-icons'
 
 export default class extends React.Component {
   constructor(props){
@@ -22,11 +23,13 @@ export default class extends React.Component {
   render(){
     return (
       <div className="App container">
-        <Navigation 
-          searchValue={this.state.searching}  
-          searchEdit={this.searchChange}  
-        />
-        {this.state.data.map((p,i)=><Post data={p} key={i}/>)}
+        <IconContext.Provider value={{size:'1.5em'}}>
+          <Navigation 
+            searchValue={this.state.searching}  
+            searchEdit={this.searchChange}  
+          />
+          <Posts data={this.state.data}/>
+        </IconContext.Provider>
       </div>
     );
   }
