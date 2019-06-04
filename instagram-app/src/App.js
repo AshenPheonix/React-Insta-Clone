@@ -15,18 +15,21 @@ export default class extends React.Component {
       searching:'',
       data:[],
       user:'AshenPheonix',
-      newComment:''
+      newComment:'',
+      current:[]
     }
   }
 
   searchChange=e=>{
-    this.setState({
-      searching:e.target.value
-    })
+    let force=e.target.value
+    this.setState(prevState=>({
+      searching:force,
+      current:prevState.data.filter(i=>i.username.includes(force))
+    }))
   }
 
   componentDidMount(){
-    this.setState({data:data})
+    this.setState({data:data,current:data})
   }
 
   render(){
@@ -40,10 +43,11 @@ export default class extends React.Component {
         <IconContext.Provider value={{size:'1.5em'}}>
           <Navigation 
             searchValue={this.state.searching}  
-            searchEdit={this.searchChange}  
+            searchEdit={this.searchChange}
+            searchFor={this.search}
           />
           <Posts 
-            data={this.state.data} 
+            data={this.state.current} 
             like={this.like} 
             comment={this.comment}/>
         </IconContext.Provider>
@@ -63,6 +67,7 @@ export default class extends React.Component {
       newComment:e.target.value
     }) 
   }
+
   add=data=>{
     $('#comment-modal').modal('toggle')
     this.setState( prevState => ({ 
@@ -73,5 +78,12 @@ export default class extends React.Component {
           ),
       newComment:''
   }))
+  }
+
+  search=e=>{
+    e.preventDefault();
+    this.setState({
+      searching:''
+    })
   }
 }
