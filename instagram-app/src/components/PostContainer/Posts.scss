@@ -1,8 +1,13 @@
+@import '../../../sass/reset';
+@import '../../../sass/vars';
+
 .postContainer{
     border:solid 1px black;
+    
     img{
         max-height: 100%;
     }
+
     .user-head{
         .icon{
             max-width: 30px;
@@ -18,5 +23,9 @@
         text-align: left;
         font-weight: bold;
         padding-left:10px;
+    }
+    @media #{$tablet}{
+        max-width: 640px;
+        margin:auto;
     }
 }

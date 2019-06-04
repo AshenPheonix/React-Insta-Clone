@@ -9,7 +9,7 @@ export default class Searchbar extends Component {
     render() {
         return (
             <nav
-                className="navbar navbar-expand-md navbar-light bg-white sticky-top d-flex justify-content-md-between"
+                className="navbar navbar-expand-md navbar-light bg-white sticky-top justify-content-md-between"
             >
                 <IconContext.Provider value={{size:'32px'}}>
                     <a

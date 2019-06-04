@@ -1,5 +1,4 @@
 import React from 'react'
-import User from '../PostContainer/User'
 
 export default function(props){
     return (

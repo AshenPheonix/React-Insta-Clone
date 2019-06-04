@@ -17,10 +17,10 @@ export default class PostCard extends Component {
                 />
                 <section className="d-flex flex-column">
                     <section className="c-icons d-flex flex-row justify-content-start">
-                        <section onClick={()=>this.props.like(this.props.postData)}>
+                        <section onClick={()=>this.props.like(this.props.post)}>
                             <Heart />
                         </section>
-                        <section onClick={this.comment}>
+                        <section onClick={()=>this.props.comment(this.props.post)}>
                             <Comment/>
                         </section>
                     </section>
