@@ -29,7 +29,19 @@ export default class extends React.Component {
   }
 
   componentDidMount(){
-    this.setState({data:data,current:data})
+    if(localStorage.getItem('data')){
+      let temp=JSON.parse(localStorage.getItem('data'))
+      this.setState({data:temp,current:temp})
+    }
+    else
+      this.setState({data:data,current:data})
+  }
+
+  componentDidUpdate(){
+    if(this.state.current!==this.state.data && this.state.searching==='')
+      this.setState({current:this.state.data})
+      
+    localStorage.setItem('data',JSON.stringify(this.state.data))
   }
 
   render(){
@@ -56,7 +68,8 @@ export default class extends React.Component {
   }
 
   like=data=>{
-    this.setState((prevState, props) => ({ data:prevState.data.map( d => d.id===data?{...d,likes:d.likes+1}:d)}))
+    this.setState((prevState, props) => ({  data:prevState.data.map( d => d.id===data?{...d,likes:d.likes+1}:d),
+                                            current:prevState.data.map( d => d.id===data?{...d,likes:d.likes+1}:d)}))
   }
   comment=data=>{
     this.setState({commentingOn:data})
