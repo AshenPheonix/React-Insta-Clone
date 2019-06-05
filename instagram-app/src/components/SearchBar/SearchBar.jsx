@@ -21,15 +21,20 @@ export default class Searchbar extends Component {
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <section className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <section className="collapse navbar-collapse d-md-flex justify-content-md-between" id="navbarSupportedContent">
                         <section className="search">
                             <FaSearch/>
                             <input type="text" placeholder="Search" onChange={this.props.searchEdit} value={this.props.searchValue}/>
                         </section>
-                        <section className="icons">
-                            <FaRegCompass/>
-                            <FaRegHeart/>
-                            <FaRegUser/>
+                        <section className="split">
+                            <section className="icons">
+                                <FaRegCompass/>
+                                <FaRegHeart/>
+                                <FaRegUser/>
+                                <button onClick={this.props.logout}
+                                    className="btn btn-warning mt-2"
+                                >Logout</button>
+                            </section>
                         </section>
                     </section>
                 </IconContext.Provider>
