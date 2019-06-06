@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import User from './User'
 import CommentBox from '../CommentSection/Comments'
-import {FaRegHeart as Heart, FaRegComment as Comment} from 'react-icons/fa'
 import './Posts.scss'
-import {PostContainer} from '../../styled/PostCard'
+import {PostContainer, PostImage,PostClosure,LikeButton,CommentButton,LikeNumber} from '../../styled/PostCard'
 
 export default class PostCard extends Component {
     
@@ -11,24 +10,23 @@ export default class PostCard extends Component {
         return (
             <PostContainer>
                 <User thumb={this.props.postData.thumbnailUrl} user={this.props.postData.username}/>
-                <img 
+                <PostImage 
                     src={this.props.postData.imageUrl} 
                     alt={`By ${this.props.postData.username}`}
-                    className='img-fluid mx-auto'
                 />
-                <section className="d-flex flex-column">
+                <PostClosure className="d-flex flex-column">
                     <section className="c-icons d-flex flex-row justify-content-start">
                         <section onClick={()=>this.props.like(this.props.post)}>
-                            <Heart />
+                            <LikeButton />
                         </section>
                         <section onClick={()=>this.props.comment(this.props.post)}>
-                            <Comment/>
+                            <CommentButton/>
                         </section>
                     </section>
-                    <p>
+                    <LikeNumber>
                         {this.props.postData.likes} likes
-                    </p>
-                </section>
+                    </LikeNumber>
+                </PostClosure>
                 <CommentBox commentList={this.props.postData.comments}/>
             </PostContainer>
         )
