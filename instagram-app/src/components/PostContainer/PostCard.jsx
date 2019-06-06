@@ -3,12 +3,13 @@ import User from './User'
 import CommentBox from '../CommentSection/Comments'
 import {FaRegHeart as Heart, FaRegComment as Comment} from 'react-icons/fa'
 import './Posts.scss'
+import {PostContainer} from '../../styled/PostCard'
 
 export default class PostCard extends Component {
     
     render() {
         return (
-            <section className="postContainer d-flex flex-column p-1 mx-auto m-5">
+            <PostContainer>
                 <User thumb={this.props.postData.thumbnailUrl} user={this.props.postData.username}/>
                 <img 
                     src={this.props.postData.imageUrl} 
@@ -29,7 +30,7 @@ export default class PostCard extends Component {
                     </p>
                 </section>
                 <CommentBox commentList={this.props.postData.comments}/>
-            </section>
+            </PostContainer>
         )
     }
 }
