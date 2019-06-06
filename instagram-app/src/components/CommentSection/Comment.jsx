@@ -1,13 +1,13 @@
 import React from 'react'
+import {CommentWrap,CommentText,CommentUser} from '../../styled/CommentBox'
 
 export default function(props){
     return (
-        <section
-            className="d-flex flex-wrap comment mx-auto "
+        <CommentWrap
         >
-            <section className="comment-text">
-                <span className="bold">@{props.data.username}</span> {props.data.text}
-            </section>
-        </section>
+            <CommentText>
+                <CommentUser className="bold">@{props.data.username}</CommentUser> {props.data.text}
+            </CommentText>
+        </CommentWrap>
     )
 }

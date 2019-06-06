@@ -5,7 +5,7 @@ import './Comments.scss'
 export default class CommentContainer extends Component {
     render() {
         return (
-            <section className="commentBox">
+            <section>
                 {this.props.commentList.map((c,i)=>{
                     return <Comment data={c} key={i}/>
                 })}
