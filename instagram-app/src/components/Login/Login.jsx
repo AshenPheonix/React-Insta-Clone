@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import './Login.scss'
+import {Redirect} from 'react-router-dom'
 
 export default class Login extends Component {
     state={
         username:'',
-        pass:''
+        pass:'',
+        send:false
     }
-
+    componentDidMount(){
+    }
     render() {
         return (
             <section className="login container">
@@ -44,7 +47,7 @@ export default class Login extends Component {
                     </div>
                     <button 
                         className="btn loginBtn" 
-                        onClick={()=>this.props.login(this.state.username,this.state.pass)}
+                        onClick={()=>this.login(this.state.username,this.state.pass)}
                     >
                         Login
                     </button>
@@ -57,6 +60,13 @@ export default class Login extends Component {
         this.setState({
             [e.target.name]:e.target.value
         })
-        
     }
+    
+    login=(u,p)=>{
+        if(u!=='' && p!==''){
+            localStorage.setItem("username",u)
+            window.location.reload()
+        }
+    }
+
 }

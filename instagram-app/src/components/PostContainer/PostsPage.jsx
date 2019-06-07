@@ -49,6 +49,7 @@ export default class PostsPage extends Component {
       }
     
       render(){
+        console.log('loading page');
         return (
           <div className="App container">
             <CommentModal
